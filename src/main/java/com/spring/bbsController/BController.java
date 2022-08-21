@@ -13,6 +13,7 @@ public class BController {
 
 	@RequestMapping("/list")
 	public String list(Model model) {
+		System.out.println("---list()호출----");
 		cmd = new ListCmd();
 		cmd.service(model);
 		return "list";
