@@ -48,7 +48,7 @@ public class BDAO {
 
 				int bHit = resultSet.getInt("bHit");
 				int bGroup = resultSet.getInt("bGroup");
-				int bStep = resultSet.getInt("bGroup");
+				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
 
 				BVO bVO = new BVO(bNo, bName, bSubject, bContent, bDate, bHit, bGroup, bStep, bIndent);
@@ -60,15 +60,51 @@ public class BDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(resultSet !=null)resultSet.close();
-				if(preparedStatement !=null) preparedStatement.close();
-				if(connection != null) connection.close();
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
 			} catch (Exception e2) {
-
+				e2.printStackTrace();
 			}
 		}
 
 		return bVOs;
 
+	}
+
+	public void write(String bName, String bSubject, String bContent) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+			System.out.println("----connection 확보----");
+
+			String sql = "insert into mbv_bbs(bNo, bName, bSubject, bContent, bHit, bGroup, bStep, bIndent, "
+					+ "values(seq_bbs.nextval,?,?,?,0,seq_bbs.currval,0,0)";
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bSubject);
+			preparedStatement.setString(3, bContent);
+
+			int n = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 }

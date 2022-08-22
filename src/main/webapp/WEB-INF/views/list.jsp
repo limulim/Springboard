@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 리스트</title>
 </head>
 <body>
 	<div align="center">
@@ -25,13 +25,13 @@
 				<tr>
 					<td>${vo.bNo}</td>
 					<td>${vo.bSubject}</td>
-					<td>${vo.bTitle}</td>
 					<td>${vo.bName}</td>
+					<td>${vo.bDate}</td>
 					<td>${vo.bHit}</td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colpsan="5"><a href="writeForm">글쓰기</a></td>
+				<td colspan="5"><a href="writeForm">글쓰기</a></td>
 			</tr>
 		</table>
 	</div>

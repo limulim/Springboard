@@ -13,7 +13,7 @@ public class ListCmd implements Bcmd {
 	public void service(Model model) {
 		BDAO dao = new BDAO();
 		ArrayList<BVO> bVOs = dao.list();
-		model.addAttribute("list, bVOs");
+		model.addAttribute("list", bVOs);
 
 	}
 
