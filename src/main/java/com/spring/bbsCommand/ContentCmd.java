@@ -20,8 +20,8 @@ public class ContentCmd  implements Bcmd{
 		String bNo = request.getParameter("bNo");
 		
 		BDAO dao = new BDAO();
-	BVO bvo = dao.contentView(bNo);
+	BVO bVo = dao.contentView(bNo);
 		
-	model.addAttribute("contentView", bvo);
+	model.addAttribute("contentView", bVo);
 	}
 }

@@ -4,6 +4,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,11 +21,20 @@ import com.spring.bbsCommand.ReplayCmd;
 import com.spring.bbsCommand.ReplyFormCmd;
 import com.spring.bbsCommand.WriteCmd;
 import com.spring.bbsVO.BVO;
+import com.spring.template.StaticTemplate;
 
 @Controller
 public class BController {
 	Bcmd cmd = null;
 
+	private JdbcTemplate template;
+	
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+		StaticTemplate.template = this.template;
+	}
+	
 	@RequestMapping("/list")
 	public String list(Model model) {
 		System.out.println("---list()호출----");
@@ -32,7 +43,7 @@ public class BController {
 		return "list";
 	}
 
-	@RequestMapping("/wirteForm")
+	@RequestMapping("/writeForm")
 	public String writeForm(Model model) {
 		System.out.println("---writeform()호출----");
 		return "writeForm";
@@ -88,21 +99,21 @@ public class BController {
 		model.addAttribute("request", request);
 		cmd = new ReplyFormCmd();
 		cmd.service(model);
-		
+
 		return "replyForm";
 	}
-		
+
 	@RequestMapping("replyOk")
 	public String replyOk(HttpServletRequest request, Model model) {
 		System.out.println("---- replyok() 호출 ----");
-	
+
 		model.addAttribute("request", request);
 		cmd = new ReplayCmd();
 		cmd.service(model);
-		
+
 		return "redirect:list";
 	}
-	
+
 	@ModelAttribute("BVO")
 	public BVO formBacking() {
 		return new BVO();

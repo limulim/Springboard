@@ -15,7 +15,7 @@ public class WriteCmd implements Bcmd{
 		Map<String, Object> map = model.asMap();
 		
 	HttpServletRequest request	= (HttpServletRequest)map.get("request");
-	String bName = request.getParameter("bNmae");
+	String bName = request.getParameter("bName");
 	String bSubject = request.getParameter("bSubject");
 	String bContent = request.getParameter("bContent");
 	
