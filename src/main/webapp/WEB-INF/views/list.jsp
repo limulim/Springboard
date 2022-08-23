@@ -24,7 +24,10 @@
 			<c:forEach items="${list}" var="vo">
 				<tr>
 					<td>${vo.bNo}</td>
-					<td>${vo.bSubject}</td>
+					<td>
+					<c:forEach begin="1" end="${vo.bIndent}">L</c:forEach>
+					<a href="contentView?bNo=${vo.bNo}">${vo.bSubject}
+					</a></td>
 					<td>${vo.bName}</td>
 					<td>${vo.bDate}</td>
 					<td>${vo.bHit}</td>
