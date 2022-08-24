@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import com.spring.bbsDAO.BDAO;
 
 public class DeleteCmd  implements Bcmd {
+	@Override
 	public void service(Model model) {
 		
 		Map<String, Object>map = model.asMap();

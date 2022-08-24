@@ -11,7 +11,7 @@
 		<hr width="500" color="green">
 		<h2>답글 페이지</h2>
 		<hr width="500" color="green">
-		<table width="500" cellpading="0" cellspacing="0" border="1">
+		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<from action="replyOk" method="post">
 			<input type="hidden" name="bNo" value="${replyForm.bNo}" />
 			<input type="hidden" name="bGroup" value="${replyForm.bGroup}" />
@@ -40,9 +40,9 @@
 				<td><textarea rows="10" name="bContent"></textarea></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>
 				<td colspan="2" align="center">
-				<input type="submit" value="답변전송">&nbsp;&nbsp;&nbsp;<a href="list">목록</a></td>
+				<input type="submit" value="답변전송">&nbsp;&nbsp;&nbsp;<a href="list">목록으로</a></td>
 			</tr>
 			</from>
 		</table>

@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 
 import com.spring.bbsDAO.BDAO;
 
-public class ReplayCmd implements Bcmd {
+public class ReplyCmd implements Bcmd {
 
 	@Override
 	public void service(Model model) {

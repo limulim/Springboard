@@ -17,7 +17,8 @@ import com.spring.bbsCommand.ContentCmd;
 import com.spring.bbsCommand.DeleteCmd;
 import com.spring.bbsCommand.ListCmd;
 import com.spring.bbsCommand.ModifyCmd;
-import com.spring.bbsCommand.ReplayCmd;
+import com.spring.bbsCommand.ReplyCmd;
+import com.spring.bbsCommand.ReplyCmd;
 import com.spring.bbsCommand.ReplyFormCmd;
 import com.spring.bbsCommand.WriteCmd;
 import com.spring.bbsVO.BVO;
@@ -61,7 +62,7 @@ public class BController {
 	}
 
 	@RequestMapping("/contentView")
-	public String contentView(HttpServlet request, Model model) {
+	public String contentView(HttpServletRequest request, Model model) {
 		System.out.println("----contentView()호출----");
 
 		model.addAttribute("request", request);
@@ -108,7 +109,7 @@ public class BController {
 		System.out.println("---- replyok() 호출 ----");
 
 		model.addAttribute("request", request);
-		cmd = new ReplayCmd();
+		cmd = new ReplyCmd();
 		cmd.service(model);
 
 		return "redirect:list";

@@ -373,8 +373,8 @@ public class BDAO {
 				ps.setString(2, bSubject);
 				ps.setString(3, bContent);
 				ps.setInt(4, Integer.parseInt(bGroup));
-				ps.setInt(5, Integer.parseInt(bStep));
-				ps.setInt(6, Integer.parseInt(bIndent));
+				ps.setInt(5, Integer.parseInt(bStep)+1);
+				ps.setInt(6, Integer.parseInt(bIndent)+1);
 			}
 		});
 

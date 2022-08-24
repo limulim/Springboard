@@ -25,7 +25,7 @@
 				<tr>
 					<td>${vo.bNo}</td>
 					<td>
-					<c:forEach begin="1" end="${vo.bIndent}">L</c:forEach>
+					<c:forEach begin="1" end="${vo.bIndent}">ㄴ</c:forEach>
 					<a href="contentView?bNo=${vo.bNo}">${vo.bSubject}
 					</a></td>
 					<td>${vo.bName}</td>
